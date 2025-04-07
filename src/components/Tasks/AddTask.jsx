@@ -42,7 +42,7 @@ const AddTask = ({ user, token }) => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 py-10">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h2 className="text-3xl font-semibold text-center mb-6 text-black">
+        <h2 className="text-5xl font-semibold text-center mb-6 text-black">
           <Typewriter
             words={["Add Task", "Create New Task", "Post a Task Now"]}
             loop={0}

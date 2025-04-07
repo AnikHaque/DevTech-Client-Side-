@@ -17,6 +17,8 @@ import UpdateTaskPage from "../components/Tasks/UpdateTask";
 import MyPostedTasks from "../components/Tasks/MyPostedTasks"; // Import the MyPostedTasks component
 import BidsPage from "../components/Tasks/BidsPage";
 import Contact from "../components/Contact/Contact";
+import AboutPage from "../components/About/About";
+import MainAbout from "../components/About/MainAbout";
 
 export default function AppRoutes() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,6 +28,7 @@ export default function AppRoutes() {
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Home />} />
+      <Route path="/about" element={<MainAbout />} />
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/success" element={<SuccessStories />} />

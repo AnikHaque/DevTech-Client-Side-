@@ -14,12 +14,7 @@ const Home = () => {
       <PopularCategories />
       <ServiceCards />
       <PopularSellers />
-
       <AppPromo />
-      {/* <Subscription />
-      <Numbers />
-      <HomeBlog />
-      <FaqSection /> */}
     </div>
   );
 };

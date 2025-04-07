@@ -84,6 +84,14 @@ export default function Navbar() {
               Home
             </Link>
             <Link
+              to="/about"
+              className={`block py-1 ${
+                isActive("/about") ? "font-semibold underline" : ""
+              }`}
+            >
+              About
+            </Link>
+            <Link
               to="/add-task"
               className={`block py-1 ${
                 isActive("/add-task") ? "font-semibold underline" : ""
