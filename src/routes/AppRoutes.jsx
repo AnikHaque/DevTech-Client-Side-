@@ -14,7 +14,7 @@ import AddTask from "../components/Tasks/AddTask";
 import BrowseTasks from "../components/Tasks/BrowseTasks";
 import TaskDetails from "../components/Tasks/TaskDetails";
 import UpdateTaskPage from "../components/Tasks/UpdateTask";
-import MyPostedTasks from "../components/Tasks/MyPostedTasks"; // Import the MyPostedTasks component
+import MyPostedTasks from "../components/Tasks/MyPostedTasks";
 import BidsPage from "../components/Tasks/BidsPage";
 import Contact from "../components/Contact/Contact";
 import AboutPage from "../components/About/About";
