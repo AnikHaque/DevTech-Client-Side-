@@ -1,133 +1,102 @@
 import React, { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../firebase";
+import axios from "axios";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react"; // Assuming you're using Lucide or similar icons
+import { useNavigate, Link } from "react-router-dom";
+import { auth, provider, signInWithPopup } from "../firebase"; // Firebase
 
-export default function Register() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    photoURL: "",
-    password: "",
-  });
-  const [showPassword, setShowPassword] = useState(false);
+const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const validatePassword = (password) => {
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasLowercase = /[a-z]/.test(password);
-    const isValidLength = password.length >= 6;
-    return hasUppercase && hasLowercase && isValidLength;
-  };
-
-  const register = async () => {
-    const { name, email, photoURL, password } = form;
-    if (!validatePassword(password)) {
-      Swal.fire(
-        "Invalid Password",
-        "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.",
+  const handleRegister = async () => {
+    // Validate password strength
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      return Swal.fire(
+        "Error",
+        "Password must have uppercase, lowercase, and at least 6 characters",
         "error"
       );
-      return;
     }
 
     try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
+      const res = await axios.post("http://localhost:8800/api/register", {
+        name,
         email,
-        password
-      );
-      await updateProfile(result.user, {
-        displayName: name,
+        password,
         photoURL,
       });
-      Swal.fire("Success", "Registration successful!", "success");
-      navigate("/");
-    } catch (error) {
-      Swal.fire("Error", error.message, "error");
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify({ name, email, photoURL }));
+      Swal.fire("Success", "Registration successful", "success");
+      navigate("/add-task");
+    } catch (err) {
+      Swal.fire(
+        "Error",
+        err.response?.data?.message || "Registration failed",
+        "error"
+      );
     }
   };
 
-  const handleGoogle = async () => {
+  const handleGoogleLogin = async () => {
     try {
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-      Swal.fire("Success", "Logged in with Google!", "success");
-      navigate("/");
-    } catch (error) {
-      Swal.fire("Error", error.message, "error");
+      const result = await signInWithPopup(auth, provider);
+      const { email, displayName, photoURL } = result.user;
+      const res = await axios.post("http://localhost:8800/api/save-user", {
+        email,
+        name: displayName,
+        photoURL,
+      });
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: displayName, email, photoURL })
+      );
+      Swal.fire("Success", "Google Login successful", "success");
+      navigate("/add-task");
+    } catch (err) {
+      Swal.fire("Error", "Google login failed", "error");
     }
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 shadow-lg rounded bg-white mt-10">
-      <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
-
+    <div>
+      <h2>Register</h2>
       <input
         type="text"
-        name="name"
         placeholder="Name"
-        value={form.name}
-        onChange={handleChange}
-        className="input input-bordered w-full mb-3"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
       <input
         type="email"
-        name="email"
         placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
-        className="input input-bordered w-full mb-3"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <input
         type="text"
-        name="photoURL"
-        placeholder="Photo URL"
-        value={form.photoURL}
-        onChange={handleChange}
-        className="input input-bordered w-full mb-3"
+        placeholder="Photo URL (optional)"
+        value={photoURL}
+        onChange={(e) => setPhotoURL(e.target.value)}
       />
-
-      <div className="relative">
-        <input
-          type={showPassword ? "text" : "password"}
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          className="input input-bordered w-full mb-3 pr-10"
-        />
-        <span
-          className="absolute right-3 top-3 cursor-pointer text-gray-500"
-          onClick={() => setShowPassword(!showPassword)}
-        >
-          {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-        </span>
-      </div>
-
-      <button onClick={register} className="btn btn-primary w-full mb-2">
-        Register
-      </button>
-      <button onClick={handleGoogle} className="btn btn-outline w-full">
-        Register with Google
-      </button>
-      <p className="text-center mt-4">
-        Already have an account?{" "}
-        <Link to="/login" className="text-blue-600 hover:underline">
-          Login here
-        </Link>
+      <button onClick={handleRegister}>Register</button>
+      <button onClick={handleGoogleLogin}>Register with Google</button>
+      <p>
+        Already have an account? <Link to="/login">Login</Link>
       </p>
     </div>
   );
-}
+};
+
+export default Register;

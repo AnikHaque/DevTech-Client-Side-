@@ -1,14 +1,10 @@
-// src/pages/ProtectedRoute.jsx
 import React from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children, user }) => {
-  const location = useLocation();
-
-  if (user === undefined) return null; // optionally show loader
-
-  if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+const ProtectedRoute = ({ children, user, token }) => {
+  if (!user || !token) {
+    // Redirect to login if no token or user
+    return <Navigate to="/login" />;
   }
 
   return children;
