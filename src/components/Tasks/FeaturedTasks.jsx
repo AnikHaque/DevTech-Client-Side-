@@ -33,7 +33,7 @@ const ServiceCards = () => {
           className="text-4xl font-bold text-center  mb-12"
           style={{ color: "var(--heading-color, var(--text-color))" }}
         >
-          Browse Popular Tasks
+          Featured Tasks
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {tasks.slice(0, 6).map((task) => (

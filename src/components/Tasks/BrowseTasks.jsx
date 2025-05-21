@@ -30,7 +30,7 @@ const BrowseTasks = () => {
   return (
     <div className="bg-gray-50 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-center text-black mb-6">
+        <h2 className="text-3xl font-bold text-center text-black mb-6 ">
           Browse Tasks
         </h2>
         {tasks.length === 0 ? (

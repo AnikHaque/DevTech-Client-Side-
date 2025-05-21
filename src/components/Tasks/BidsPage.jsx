@@ -32,11 +32,7 @@ const BidsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-12 px-6">
       <div className="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
-        <h2 className="text-3xl font-bold text-center text-blue-700 mb-4">
-          Bids for Task ID: <span className="text-gray-800">{taskId}</span>
-        </h2>
-        {error && <p className="text-red-600 text-center mb-4">{error}</p>}
-        <p className="text-center text-gray-700 mb-6">
+        <p className="text-center text-gray-700 mb-6 text-3xl">
           Total Bids: <span className="font-semibold">{bidCount}</span>
         </p>
 

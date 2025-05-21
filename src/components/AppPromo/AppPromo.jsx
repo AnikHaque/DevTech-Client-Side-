@@ -19,7 +19,7 @@ const AppPromo = () => {
             className="text-4xl font-bold mb-4"
             style={{ color: "var(--heading-color, var(--text-color))" }}
           >
-            Get the Prolancer <br />
+            Get the Freelancer <br />
             <span
               className=""
               style={{ color: "var(--text-muted-color, var(--text-color))" }}

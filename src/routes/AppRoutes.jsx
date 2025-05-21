@@ -31,7 +31,6 @@ export default function AppRoutes() {
       <Route path="/success" element={<SuccessStories />} />
       <Route path="/browse-tasks" element={<BrowseTasks />} />
       <Route path="/bids/:taskId" element={<BidsPage />} />
-      <Route path="/task-details/:id" element={<TaskDetails />} />
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" />} />
 
@@ -41,6 +40,14 @@ export default function AppRoutes() {
         element={
           <ProtectedRoute user={user} token={token}>
             <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/task-details/:id"
+        element={
+          <ProtectedRoute user={user} token={token}>
+            <TaskDetails />
           </ProtectedRoute>
         }
       />

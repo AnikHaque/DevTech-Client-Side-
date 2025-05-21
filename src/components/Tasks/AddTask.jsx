@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
 
 const AddTask = ({ user, token }) => {
@@ -19,7 +20,7 @@ const AddTask = ({ user, token }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setMessage("✅ Task added successfully!");
+      Swal.fire("Success", "Task Added successfully");
       reset();
     } catch (err) {
       setMessage("❌ Error adding task.");

@@ -13,9 +13,9 @@ const slides = [
   {
     id: 2,
     image:
-      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
-    title: "Modern Web Development Kits",
-    desc: "Explore minimalist designs and modern development products.",
+      "https://png.pngtree.com/thumb_back/fh260/background/20220427/pngtree-home-office-banner-freelance-work-image_1091574.jpg",
+    title: "The Easiest Way to Get Your New Job",
+    desc: "Work with talented people at the most affordable price to get the most out of your time and cost",
     btn1: "Explore",
     btn2: "Subscribe",
   },

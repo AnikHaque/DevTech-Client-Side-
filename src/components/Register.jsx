@@ -32,7 +32,7 @@ const Register = () => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify({ name, email, photoURL }));
       Swal.fire("Success", "Registration successful", "success");
-      navigate("/add-task");
+      navigate("/");
     } catch (err) {
       Swal.fire(
         "Error",
