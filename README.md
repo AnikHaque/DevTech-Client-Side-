@@ -8,11 +8,7 @@ DevTech is a modern freelancing platform designed to seamlessly connect individu
 
 ---
 
-## Purpose
 
-This project demonstrates a full-featured **subscription service website** with user authentication, blog content, testimonials, FAQs, and admin-like profile editing. Ideal for showcasing skills in React, Firebase, and modern web development practices.
-
----
 
 ## Key Features
 
