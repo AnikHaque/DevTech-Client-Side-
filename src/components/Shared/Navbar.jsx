@@ -118,8 +118,11 @@ export default function Navbar() {
                       alt="User"
                       className="w-8 h-8 rounded-full border-2 border-white"
                     />
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap z-10">
-                      {user.name || "No Name"}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black text-white text-sm px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap z-10 text-center">
+                      <div>{user.name || "No Name"}</div>
+                      <div className="text-gray-300 text-xs">
+                        {user.email || "No email"}
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -136,12 +139,20 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <Link
-                to="/login"
-                className="bg-green-500 px-3 py-1 rounded hover:bg-green-600 transition text-center"
-              >
-                Login
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link
+                  to="/login"
+                  className="bg-green-500 px-3 py-1 rounded hover:bg-green-600 transition text-center"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="bg-blue-500 px-3 py-1 rounded hover:bg-blue-600 transition text-center"
+                >
+                  Signup
+                </Link>
+              </div>
             )}
           </div>
         </div>

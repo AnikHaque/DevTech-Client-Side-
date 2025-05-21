@@ -34,10 +34,7 @@ const Contact = () => {
                     />
                   </svg>
                   <p class="mt-6 text-lg font-medium text-gray-900">
-                    +8801540026119
-                  </p>
-                  <p class="mt-1 text-lg font-medium text-gray-900">
-                    +8801869492183
+                    +8801757532012
                   </p>
                 </div>
               </div>
@@ -59,7 +56,7 @@ const Contact = () => {
                     />
                   </svg>
                   <p class="mt-6 text-lg font-medium text-gray-900">
-                    anik.haque.cse1@gmail.com
+                    mahiyamutasha678@gmail.com
                   </p>
                   <p class="mt-1 text-lg font-medium text-gray-900">
                     test@gmail.com
