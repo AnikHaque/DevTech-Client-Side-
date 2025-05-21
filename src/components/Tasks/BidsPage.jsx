@@ -13,7 +13,7 @@ const BidsPage = () => {
       const token = localStorage.getItem("token");
       try {
         const response = await axios.get(
-          `http://localhost:8800/api/bids/${taskId}`,
+          `https://freelancer-website-server.vercel.app/api/bids/${taskId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

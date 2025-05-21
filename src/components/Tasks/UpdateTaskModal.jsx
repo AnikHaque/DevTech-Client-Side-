@@ -25,7 +25,7 @@ const UpdateTaskModal = ({ task, showModal, setShowModal, token }) => {
 
     try {
       const res = await axios.put(
-        `http://localhost:8800/api/update-task/${task._id}`,
+        `https://freelancer-website-server.vercel.app/api/update-task/${task._id}`,
         {
           title,
           category,
