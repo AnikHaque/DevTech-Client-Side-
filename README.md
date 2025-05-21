@@ -1,6 +1,6 @@
-# TheCrate website
+# DevTech
 
-A modern subscription-based web application built with **React**, **Firebase Authentication**, and **Vite**. It offers secure login, protected routes, user profile management, dynamic blogs, testimonials, and more.
+DevTech is a modern freelancing platform designed to seamlessly connect individuals looking for help with small tasks and skilled freelancers seeking work opportunities. Whether you're a startup founder needing a quick design fix or a developer looking to monetize your skills, DevTech provides a streamlined, user-friendly environment to post, bid, and collaborate with confidence.
 
 ## Live Site
 
@@ -16,25 +16,9 @@ This project demonstrates a full-featured **subscription service website** with 
 
 ## Key Features
 
-- **Firebase Authentication**
-
 - Email/password and Google login
-- Protected routes (e.g., Products, Subscription Details, My Profile)
-- Forget Password with email reset and Gmail redirect
-
-- **Dynamic Pages**
-
-- Subscription Services with detail view and review system
-- Blogs (6 total) with `Show All` navigation
-- Testimonials with star ratings
-
-- **My Profile**
-
-- View and edit user name/photo using `updateProfile`
-
-- **FAQ Section**
-
-- Stylish accordion + image layout
+  -Add , Browse & Manage Tasks
+- Theme Switch Between Dark/Light
 
 - **Show/Hide Password Toggle**
 
@@ -51,13 +35,15 @@ This project demonstrates a full-featured **subscription service website** with 
 
 ## NPM Packages Used
 
-| Package               | Purpose                                  |
-| --------------------- | ---------------------------------------- |
-| react-router-dom      | Routing and protected routes             |
-| firebase              | Authentication and user management       |
-| sweetalert2           | Alerts and notifications                 |
-| react-icons           | Icons for UI (e.g., password eye toggle) |
-| react-helmet-async    | Dynamic page title management            |
-| tailwindcss / daisyUI | Styling and UI components                |
+| Package                 | Purpose                                  |
+| ----------------------- | ---------------------------------------- |
+| react-router-dom        | Routing and protected routes             |
+| firebase                | Authentication and user management       |
+| sweetalert2             | Alerts and notifications                 |
+| react-icons             | Icons for UI (e.g., password eye toggle) |
+| react-helmet-async      | Dynamic page title management            |
+| tailwindcss             | Styling and UI components                |
+| react-simple-typewriter | For Continuous typing                    |
+|  |
 
 ---

@@ -49,7 +49,7 @@ export default function Navbar() {
     <nav className="bg-black text-white px-4 py-4 shadow-md">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to="/" className="text-xl font-bold">
-          TheCrate
+          DevHive
         </Link>
 
         <button
