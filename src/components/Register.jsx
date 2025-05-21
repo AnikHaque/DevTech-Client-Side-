@@ -64,37 +64,68 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Photo URL (optional)"
-        value={photoURL}
-        onChange={(e) => setPhotoURL(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-      <button onClick={handleGoogleLogin}>Register with Google</button>
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+    <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-6">
+          Create Your Account
+        </h2>
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <input
+            type="text"
+            placeholder="Photo URL (optional)"
+            value={photoURL}
+            onChange={(e) => setPhotoURL(e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <div className="mt-6 space-y-4">
+          <button
+            onClick={handleRegister}
+            className="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition duration-300"
+          >
+            Register
+          </button>
+
+          <button
+            onClick={handleGoogleLogin}
+            className="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition duration-300"
+          >
+            Register with Google
+          </button>
+        </div>
+
+        <p className="mt-4 text-center text-sm text-gray-600">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

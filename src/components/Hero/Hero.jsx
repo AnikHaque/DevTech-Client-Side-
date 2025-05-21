@@ -4,9 +4,9 @@ const slides = [
   {
     id: 1,
     image:
-      "https://t4.ftcdn.net/jpg/02/83/46/33/360_F_283463385_mfnrx6RPU3BqObhVuVjYZjeZ5pegE7xq.jpg",
-    title: "Web Design Subscription Kits",
-    desc: "Unleash your best look with our curated Design products.",
+      "https://sslcommerz.com/wp-content/uploads/2024/04/Importance-of-Online-Payment-Gateways-for-Freelancers.png",
+    title: "The Easiest Way to Get Your New Task",
+    desc: "Work with talented people at the most affordable price to get the most out of your time and cost",
     btn1: "Subscribe Now",
     btn2: "Learn More",
   },
@@ -52,7 +52,7 @@ const Hero = () => {
             {/* Centered overlay content */}
             <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] flex justify-center items-center">
               <div className="text-white text-center px-4 md:px-8">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                <h2 className="text-3xl md:text-6xl font-bold mb-4">
                   {slide.title}
                 </h2>
                 <p className="text-lg md:text-xl mb-6 max-w-xl mx-auto">

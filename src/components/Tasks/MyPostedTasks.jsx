@@ -7,11 +7,9 @@ const MyPostedTasks = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Fetch tasks posted by the logged-in user
   useEffect(() => {
     const fetchTasks = async () => {
       const token = localStorage.getItem("token");
-
       try {
         const response = await axios.get("http://localhost:8800/api/my-tasks", {
           headers: { Authorization: `Bearer ${token}` },
@@ -26,7 +24,6 @@ const MyPostedTasks = () => {
     fetchTasks();
   }, []);
 
-  // Delete task
   const handleDelete = async (taskId) => {
     const token = localStorage.getItem("token");
     try {
@@ -40,74 +37,104 @@ const MyPostedTasks = () => {
     }
   };
 
-  // Navigate to update task page
   const handleUpdate = (taskId) => {
     navigate(`/update-task/${taskId}`);
   };
 
-  // Navigate to view bids for this task
   const handleViewBids = (taskId) => {
     navigate(`/bids/${taskId}`);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>My Posted Tasks</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        <thead>
-          <tr style={{ background: "#f0f0f0" }}>
-            <th style={{ border: "1px solid #ccc", padding: "8px" }}>Title</th>
-            <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-              Category
-            </th>
-            <th style={{ border: "1px solid #ccc", padding: "8px" }}>Budget</th>
-            <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {tasks.length === 0 ? (
+    <div className="p-6">
+      <h2 className="text-2xl font-bold mb-4">My Posted Tasks</h2>
+      {error && <p className="text-red-500 mb-4">{error}</p>}
+
+      {/* Mobile: Cards */}
+      <div className="block md:hidden space-y-4">
+        {tasks.length === 0 ? (
+          <p className="text-center text-gray-500">No tasks available</p>
+        ) : (
+          tasks.map((task) => (
+            <div key={task._id} className="bg-white p-4 rounded shadow border">
+              <h3 className="text-lg font-semibold">{task.title}</h3>
+              <p className="text-sm text-gray-600">Category: {task.category}</p>
+              <p className="text-sm text-gray-600">Budget: ${task.budget}</p>
+              <div className="mt-4 space-x-2">
+                <button
+                  onClick={() => handleUpdate(task._id)}
+                  className="bg-yellow-500 text-white px-3 py-1 rounded"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => handleDelete(task._id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded"
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={() => handleViewBids(task._id)}
+                  className="bg-blue-500 text-white px-3 py-1 rounded"
+                >
+                  View Bids
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+
+      {/* Tablet/Desktop: Table */}
+      <div className="hidden md:block overflow-x-auto">
+        <table className="min-w-full border border-gray-300">
+          <thead className="bg-gray-100">
             <tr>
-              <td colSpan="4" style={{ textAlign: "center", padding: "20px" }}>
-                No tasks available
-              </td>
+              <th className="text-left p-3 border">Title</th>
+              <th className="text-left p-3 border">Category</th>
+              <th className="text-left p-3 border">Budget</th>
+              <th className="text-left p-3 border">Actions</th>
             </tr>
-          ) : (
-            tasks.map((task) => (
-              <tr key={task._id}>
-                <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                  {task.title}
-                </td>
-                <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                  {task.category}
-                </td>
-                <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                  ${task.budget}
-                </td>
-                <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                  <button
-                    onClick={() => handleUpdate(task._id)}
-                    style={{ marginRight: "8px" }}
-                  >
-                    Update
-                  </button>
-                  <button
-                    onClick={() => handleDelete(task._id)}
-                    style={{ marginRight: "8px" }}
-                  >
-                    Delete
-                  </button>
-                  <button onClick={() => handleViewBids(task._id)}>
-                    View Bids
-                  </button>
+          </thead>
+          <tbody>
+            {tasks.length === 0 ? (
+              <tr>
+                <td colSpan="4" className="text-center p-4 text-gray-500">
+                  No tasks available
                 </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              tasks.map((task) => (
+                <tr key={task._id} className="border-t">
+                  <td className="p-3 border">{task.title}</td>
+                  <td className="p-3 border">{task.category}</td>
+                  <td className="p-3 border">${task.budget}</td>
+                  <td className="p-3 border space-x-2">
+                    <button
+                      onClick={() => handleUpdate(task._id)}
+                      className="bg-yellow-500 text-white px-2 py-1 rounded"
+                    >
+                      Update
+                    </button>
+                    <button
+                      onClick={() => handleDelete(task._id)}
+                      className="bg-red-500 text-white px-2 py-1 rounded"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => handleViewBids(task._id)}
+                      className="bg-blue-500 text-white px-2 py-1 rounded"
+                    >
+                      View Bids
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

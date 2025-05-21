@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const AddTask = ({ user, token }) => {
   const {
@@ -26,56 +26,145 @@ const AddTask = ({ user, token }) => {
     }
   };
 
-  // Handle the case when user is not available (not logged in or token expired)
   if (!user) {
-    return <p>Please log in to add a task.</p>; // Or redirect them to the login page
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl text-red-600">Please log in to add a task.</p>
+      </div>
+    );
   }
 
   return (
-    <div style={{ maxWidth: "600px", margin: "auto" }}>
-      <h2>Add New Task</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-      >
-        <input
-          placeholder="Task Title"
-          {...register("title", { required: true })}
-        />
-        {errors.title && <span>Title is required</span>}
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 py-10">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h2 className="text-3xl font-semibold text-center mb-6 text-blue-600">
+          <Typewriter
+            words={["Add Task", "Create New Task", "Post a Task Now"]}
+            loop={0}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </h2>
 
-        <select {...register("category", { required: true })}>
-          <option value="">Select Category</option>
-          <option value="Web Development">Web Development</option>
-          <option value="Design">Design</option>
-          <option value="Writing">Writing</option>
-          <option value="Marketing">Marketing</option>
-        </select>
-        {errors.category && <span>Category is required</span>}
+        {/* User Info */}
+        <div className="mb-4 text-center">
+          <p className="text-xl font-semibold">Hello, {user?.name}</p>
+          <p className="text-lg text-gray-600">{user?.email}</p>
+        </div>
 
-        <textarea
-          placeholder="Description"
-          {...register("description", { required: true })}
-        />
-        {errors.description && <span>Description is required</span>}
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          {/* Title */}
+          <div>
+            <input
+              type="text"
+              placeholder="Task Title"
+              {...register("title", { required: "Title is required" })}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.title && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.title.message}
+              </p>
+            )}
+          </div>
 
-        <input type="date" {...register("deadline", { required: true })} />
-        {errors.deadline && <span>Deadline is required</span>}
+          {/* Category */}
+          <div>
+            <select
+              {...register("category", { required: "Category is required" })}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select Category</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Design">Design</option>
+              <option value="Writing">Writing</option>
+              <option value="Marketing">Marketing</option>
+            </select>
+            {errors.category && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.category.message}
+              </p>
+            )}
+          </div>
 
-        <input
-          type="number"
-          placeholder="Budget"
-          {...register("budget", { required: true })}
-        />
-        {errors.budget && <span>Budget is required</span>}
+          {/* Description */}
+          <div>
+            <textarea
+              placeholder="Description"
+              {...register("description", {
+                required: "Description is required",
+              })}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.description && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.description.message}
+              </p>
+            )}
+          </div>
 
-        {/* Display email and name only if user exists */}
-        <input type="text" value={user?.email || ""} readOnly />
-        <input type="text" value={user?.name || ""} readOnly />
+          {/* Deadline */}
+          <div>
+            <input
+              type="date"
+              {...register("deadline", { required: "Deadline is required" })}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.deadline && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.deadline.message}
+              </p>
+            )}
+          </div>
 
-        <button type="submit">Add Task</button>
-        {message && <p>{message}</p>}
-      </form>
+          {/* Budget */}
+          <div>
+            <input
+              type="number"
+              placeholder="Budget"
+              {...register("budget", { required: "Budget is required" })}
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.budget && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.budget.message}
+              </p>
+            )}
+          </div>
+
+          {/* Hidden User Info */}
+          <div>
+            <input
+              type="text"
+              value={user?.email || ""}
+              readOnly
+              className="w-full p-3 border border-gray-300 rounded-md"
+            />
+            <input
+              type="text"
+              value={user?.name || ""}
+              readOnly
+              className="w-full p-3 border border-gray-300 rounded-md"
+            />
+          </div>
+
+          {/* Submit */}
+          <div>
+            <button
+              type="submit"
+              className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Add Task
+            </button>
+          </div>
+
+          {/* Message */}
+          {message && <p className="text-center text-lg mt-4">{message}</p>}
+        </form>
+      </div>
     </div>
   );
 };

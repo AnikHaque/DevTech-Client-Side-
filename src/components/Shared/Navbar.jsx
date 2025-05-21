@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // For mobile menu toggle
-  const [user, setUser] = useState(null); // User data from localStorage
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Token check
+  const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [theme, setTheme] = useState("light");
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Check for token and user in localStorage on mount and path change
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("user");
@@ -21,9 +21,20 @@ export default function Navbar() {
       setUser(null);
       setIsLoggedIn(false);
     }
+
+    // Load theme from localStorage
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
   }, [location.pathname]);
 
-  // Logout function
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -32,18 +43,15 @@ export default function Navbar() {
     navigate("/login");
   };
 
-  // Helper for active link highlighting
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-blue-600 text-white px-4 py-4 shadow-md">
+    <nav className="bg-black text-white px-4 py-4 shadow-md">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
-        {/* Logo / Brand */}
         <Link to="/" className="text-xl font-bold">
           TheCrate
         </Link>
 
-        {/* Mobile menu toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-white focus:outline-none text-2xl"
@@ -51,7 +59,6 @@ export default function Navbar() {
           ☰
         </button>
 
-        {/* Navigation Links */}
         <div
           className={`w-full md:w-auto mt-4 md:mt-0 ${
             isOpen ? "block" : "hidden"
@@ -75,25 +82,33 @@ export default function Navbar() {
               Add Task
             </Link>
             <Link
-              to="/success"
+              to="/browse-tasks"
               className={`block py-1 ${
-                isActive("/success") ? "font-semibold underline" : ""
+                isActive("/browse-tasks") ? "font-semibold underline" : ""
               }`}
             >
-              Success Stories
+              Browse Tasks
             </Link>
             <Link
-              to="/contact"
+              to="/my-posted-tasks"
               className={`block py-1 ${
-                isActive("/contact") ? "font-semibold underline" : ""
+                isActive("/my-posted-tasks") ? "font-semibold underline" : ""
               }`}
             >
-              Contact
+              My Posted Tasks
             </Link>
           </div>
 
-          {/* Auth Actions */}
           <div className="mt-4 md:mt-0 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="border border-white px-3 py-1 rounded text-sm"
+              title="Toggle Theme"
+            >
+              {theme === "light" ? "🌙" : "☀️"}
+            </button>
+
             {isLoggedIn ? (
               <div className="flex items-center gap-4">
                 {user?.photoURL ? (

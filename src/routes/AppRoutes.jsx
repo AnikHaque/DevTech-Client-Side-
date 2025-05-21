@@ -15,6 +15,7 @@ import BrowseTasks from "../components/Tasks/BrowseTasks";
 import TaskDetails from "../components/Tasks/TaskDetails";
 import UpdateTaskPage from "../components/Tasks/UpdateTask";
 import MyPostedTasks from "../components/Tasks/MyPostedTasks"; // Import the MyPostedTasks component
+import BidsPage from "../components/Tasks/BidsPage";
 
 export default function AppRoutes() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -27,6 +28,7 @@ export default function AppRoutes() {
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/success" element={<SuccessStories />} />
       <Route path="/browse-tasks" element={<BrowseTasks />} />
+      <Route path="/bids/:taskId" element={<BidsPage />} />
       <Route path="/task-details/:id" element={<TaskDetails />} />
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" />} />
