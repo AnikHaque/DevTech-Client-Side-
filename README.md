@@ -2,13 +2,6 @@
 
 DevTech is a modern freelancing platform designed to seamlessly connect individuals looking for help with small tasks and skilled freelancers seeking work opportunities. Whether you're a startup founder needing a quick design fix or a developer looking to monetize your skills, DevTech provides a streamlined, user-friendly environment to post, bid, and collaborate with confidence.
 
-## Live Site
-
-[Visit Site](https://subscription-box-website.vercel.app/)
-
----
-
-
 
 ## Key Features
 
