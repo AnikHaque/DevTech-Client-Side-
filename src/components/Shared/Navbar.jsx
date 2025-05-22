@@ -23,13 +23,11 @@ export default function Navbar() {
       setIsLoggedIn(false);
     }
 
-    // Load theme from localStorage
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, [location.pathname]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (!e.target.closest("#user-dropdown")) {
