@@ -6,6 +6,7 @@ export default function Navbar() {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [theme, setTheme] = useState("light");
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,6 +28,17 @@ export default function Navbar() {
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, [location.pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.target.closest("#user-dropdown")) {
+        setShowUserDropdown(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -110,33 +122,40 @@ export default function Navbar() {
             </button>
 
             {isLoggedIn ? (
-              <div className="flex items-center gap-4">
-                {user?.photoURL ? (
-                  <div className="relative group cursor-pointer">
+              <div className="relative" id="user-dropdown">
+                <div
+                  className="cursor-pointer flex items-center gap-2"
+                  onClick={() => setShowUserDropdown((prev) => !prev)}
+                >
+                  {user?.photoURL ? (
                     <img
                       src={user.photoURL}
                       alt="User"
                       className="w-8 h-8 rounded-full border-2 border-white"
                     />
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black text-white text-sm px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap z-10 text-center">
-                      <div>{user.name || "No Name"}</div>
-                      <div className="text-gray-300 text-xs">
-                        {user.email || "No email"}
-                      </div>
+                  ) : (
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-black">
+                      ?
                     </div>
-                  </div>
-                ) : (
-                  <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-black">
-                    ?
+                  )}
+                </div>
+
+                {showUserDropdown && (
+                  <div className="absolute right-0 mt-2 bg-black text-white rounded shadow-lg p-3 text-sm z-20 w-48">
+                    <div className="mb-2 font-medium">
+                      {user.name || "No Name"}
+                    </div>
+                    <div className="mb-3 text-gray-300">
+                      {user.email || "No email"}
+                    </div>
+                    <button
+                      onClick={logout}
+                      className="w-full bg-red-500 hover:bg-red-600 px-3 py-1 rounded"
+                    >
+                      Logout
+                    </button>
                   </div>
                 )}
-
-                <button
-                  onClick={logout}
-                  className="bg-red-500 px-3 py-1 rounded hover:bg-red-600 transition"
-                >
-                  Logout
-                </button>
               </div>
             ) : (
               <div className="flex items-center gap-2">
