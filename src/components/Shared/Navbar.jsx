@@ -107,6 +107,14 @@ export default function Navbar() {
             >
               Browse Tasks
             </Link>
+            <Link
+              to="/contact"
+              className={`block py-1 ${
+                isActive("/browse-tasks") ? "font-semibold underline" : ""
+              }`}
+            >
+              Contact
+            </Link>
             {isLoggedIn ? (
               <Link
                 to="/dashboard"
