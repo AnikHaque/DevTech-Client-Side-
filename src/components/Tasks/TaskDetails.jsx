@@ -12,7 +12,7 @@ const TaskDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://freelancer-website-server.vercel.app/api/tasks/${id}`)
+      .get(`http://localhost:8800/api/tasks/${id}`)
       .then((res) => setTask(res.data))
       .catch((err) => {
         setError("Task not found or error fetching task.");
@@ -20,7 +20,7 @@ const TaskDetails = () => {
       });
 
     axios
-      .get(`https://freelancer-website-server.vercel.app/api/bids/${id}`)
+      .get(`http://localhost:8800/api/bids/${id}`)
       .then((res) => setBidsCount(res.data.length))
       .catch((err) => console.error("Error fetching bids:", err));
   }, [id]);
@@ -33,7 +33,7 @@ const TaskDetails = () => {
 
     axios
       .post(
-        `https://freelancer-website-server.vercel.app/api/bids/${id}`,
+        `http://localhost:8800/api/bids/${id}`,
         { taskId: id },
         {
           headers: {

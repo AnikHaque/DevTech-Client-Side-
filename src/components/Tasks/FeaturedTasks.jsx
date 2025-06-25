@@ -10,7 +10,7 @@ const ServiceCards = () => {
   useEffect(() => {
     setLoading(false);
     axios
-      .get("https://freelancer-website-server.vercel.app/api/featured")
+      .get("http://localhost:8800/api/featured")
       .then((res) => setTasks(res.data))
       .catch((err) => console.error("Failed to fetch tasks", err));
   }, []);
@@ -63,7 +63,7 @@ const ServiceCards = () => {
                 </div>
                 <button
                   onClick={() => navigate(`/task-details/${task._id}`)}
-                  className="mt-6 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition duration-300"
+                  className="mt-6 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition duration-300"
                 >
                   View Details
                 </button>

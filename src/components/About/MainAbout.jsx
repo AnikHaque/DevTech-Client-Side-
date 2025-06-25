@@ -1,12 +1,9 @@
-import React from "react";
-import AboutPage from "./About";
-import FeaturedAbout from "./FeaturedAbout";
+import AboutBanner from "./AboutBanner";
 
 const MainAbout = () => {
   return (
     <>
-      <AboutPage></AboutPage>
-      <FeaturedAbout></FeaturedAbout>
+      <AboutBanner></AboutBanner>
     </>
   );
 };

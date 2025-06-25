@@ -19,6 +19,8 @@ import BidsPage from "../components/Tasks/BidsPage";
 import Contact from "../components/Contact/Contact";
 import AboutPage from "../components/About/About";
 import MainAbout from "../components/About/MainAbout";
+import Overview from "../components/Dashboard/Overview/OverView";
+import DashboardLayout from "../components/Layout/DashboardLayout";
 
 export default function AppRoutes() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -36,7 +38,10 @@ export default function AppRoutes() {
       <Route path="/bids/:taskId" element={<BidsPage />} />
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" />} />
-
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="overview" element={<Overview />} />
+        <Route index element={<Overview />} /> {/* ✅ default route */}
+      </Route>
       {/* Protected Routes */}
       <Route
         path="/profile"

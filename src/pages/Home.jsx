@@ -4,6 +4,7 @@ import PopularCategories from "../components/Categories/PopularCategories";
 import ServiceCards from "../components/Tasks/FeaturedTasks";
 import PopularSellers from "../components/Seller/PopularSeller";
 import AppPromo from "../components/AppPromo/AppPromo";
+import PopularTasks from "../components/Tasks/PopularTasks";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <PopularCategories />
       <ServiceCards />
       <PopularSellers />
+      <PopularTasks></PopularTasks>
       <AppPromo />
     </div>
   );
