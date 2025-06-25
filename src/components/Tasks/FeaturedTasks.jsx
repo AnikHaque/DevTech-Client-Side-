@@ -27,40 +27,24 @@ const ServiceCards = () => {
   }
 
   return (
-    <div className=" py-16 " style={{ color: "var(--text-color)" }}>
+    <div className="bg-[#1b1f12] py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          className="text-4xl font-bold text-center  mb-12"
-          style={{ color: "var(--heading-color, var(--text-color))" }}
-        >
-          Featured Tasks
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <h1 className="md:text-5xl font-bold xl:w-3/4 mx-auto text-white mb-20">
+          Take a brief look at our Featured Tasks
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tasks.slice(0, 6).map((task) => (
             <div
-              key={task._id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1"
+              key={task.id}
+              className="card bg-base-100 lg:max-w-lg shadow-sm p-3"
             >
-              <div className="p-6 flex flex-col h-full justify-between">
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                    {task.title}
-                  </h3>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <p>
-                      <span className="font-semibold">Category:</span>{" "}
-                      {task.category}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Budget:</span> $
-                      {task.budget}
-                    </p>
-                    <p>
-                      <span className="font-semibold">Deadline:</span>{" "}
-                      {new Date(task.deadline).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
+              <figure>
+                <img src={task.image} alt={task.title} />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{task.title}</h2>
+                <p>{task.description}</p>
                 <button
                   onClick={() => navigate(`/task-details/${task._id}`)}
                   className="mt-6 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition duration-300"
