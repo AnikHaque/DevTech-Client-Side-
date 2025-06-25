@@ -26,7 +26,7 @@ const DashboardLayout = () => {
           </NavLink>
 
           <NavLink
-            to="/dashboard/popular"
+            to="/dashboard/popular-tasks"
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
                 isActive

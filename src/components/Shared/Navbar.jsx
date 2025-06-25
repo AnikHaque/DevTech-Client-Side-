@@ -107,14 +107,18 @@ export default function Navbar() {
             >
               Browse Tasks
             </Link>
-            <Link
-              to="/my-posted-tasks"
-              className={`block py-1 ${
-                isActive("/my-posted-tasks") ? "font-semibold underline" : ""
-              }`}
-            >
-              My Posted Tasks
-            </Link>
+            {isLoggedIn ? (
+              <Link
+                to="/dashboard"
+                className={`block py-1 ${
+                  isActive("/my-posted-tasks") ? "font-semibold underline" : ""
+                }`}
+              >
+                Dashboard
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className="mt-4 md:mt-0 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">

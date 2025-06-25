@@ -21,6 +21,7 @@ import AboutPage from "../components/About/About";
 import MainAbout from "../components/About/MainAbout";
 import Overview from "../components/Dashboard/Overview/OverView";
 import DashboardLayout from "../components/Layout/DashboardLayout";
+import DashPopularTasks from "../components/Dashboard/Tasks/DashPopularTasks";
 
 export default function AppRoutes() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -41,6 +42,8 @@ export default function AppRoutes() {
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route path="overview" element={<Overview />} />
         <Route index element={<Overview />} /> {/* ✅ default route */}
+        <Route path="popular-tasks" element={<DashPopularTasks />} />
+        <Route path="my-tasks" element={<MyPostedTasks />} />
       </Route>
       {/* Protected Routes */}
       <Route
