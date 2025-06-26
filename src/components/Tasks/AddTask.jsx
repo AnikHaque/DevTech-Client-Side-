@@ -89,9 +89,9 @@ const AddTask = ({ user, token }) => {
               className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-300"
             >
               <option value="">Select Category</option>
-              <option value="Web Development">Web Development</option>
+              <option value="Web Development">Development</option>
               <option value="Design">Design</option>
-              <option value="Writing">Writing</option>
+              <option value="Writing">Graphics Design</option>
               <option value="Marketing">Marketing</option>
             </select>
             {errors.category && (
@@ -138,6 +138,21 @@ const AddTask = ({ user, token }) => {
               type="number"
               placeholder="Budget"
               {...register("budget", { required: "Budget is required" })}
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-300"
+            />
+            {errors.budget && (
+              <p className="text-sm text-red-500 mt-1">
+                {errors.budget.message}
+              </p>
+            )}
+          </div>
+
+          {/* image */}
+          <div>
+            <input
+              type="text"
+              placeholder="Image"
+              {...register("image", { required: "Image is required" })}
               className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-300"
             />
             {errors.budget && (

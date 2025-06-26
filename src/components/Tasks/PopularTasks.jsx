@@ -42,7 +42,7 @@ const PopularTasks = () => {
             >
               <div className="p-6 flex flex-col h-full justify-between">
                 <div>
-                  <img src={task.picture}></img>
+                  <img src={task.image}></img>
                 </div>
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-3">

@@ -1,10 +1,8 @@
-import React from "react";
-
 const slides = [
   {
     id: 1,
     image:
-      "https://sslcommerz.com/wp-content/uploads/2024/04/Importance-of-Online-Payment-Gateways-for-Freelancers.png",
+      "https://png.pngtree.com/thumb_back/fh260/background/20230707/pngtree-d-illustration-of-a-skilled-freelance-developer-working-on-a-laptop-image_3791858.jpg",
     title: "The Easiest Way to Get Your New Task",
     desc: "Work with talented people at the most affordable price to get the most out of your time and cost",
     btn1: "Subscribe Now",
