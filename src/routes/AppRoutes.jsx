@@ -41,7 +41,11 @@ export default function AppRoutes() {
       <Route path="*" element={<Navigate to="/404" />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route path="overview" element={<Overview />} />
-        <Route index element={<Overview />} /> {/* ✅ default route */}
+        <Route index element={<Overview />} />
+        <Route
+          path="add-task"
+          element={<AddTask user={user} token={token}></AddTask>}
+        />
         <Route path="popular-tasks" element={<DashPopularTasks />} />
         <Route path="my-tasks" element={<MyPostedTasks />} />
       </Route>

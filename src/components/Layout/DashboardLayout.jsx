@@ -26,6 +26,48 @@ const DashboardLayout = () => {
           </NavLink>
 
           <NavLink
+            to="/dashboard/add-task"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
+                isActive
+                  ? "bg-blue-100 text-blue-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`
+            }
+          >
+            <Flame className="w-5 h-5" />
+            Add a Task
+          </NavLink>
+
+          <NavLink
+            to="/dashboard/all-tasks"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
+                isActive
+                  ? "bg-blue-100 text-blue-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`
+            }
+          >
+            <Flame className="w-5 h-5" />
+            All Tasks
+          </NavLink>
+
+          <NavLink
+            to="/dashboard/featured-tasks"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
+                isActive
+                  ? "bg-blue-100 text-blue-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`
+            }
+          >
+            <Flame className="w-5 h-5" />
+            Featured Tasks
+          </NavLink>
+
+          <NavLink
             to="/dashboard/popular-tasks"
             className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${
