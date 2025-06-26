@@ -4,7 +4,7 @@ const FeaturedAbout = () => {
   return (
     <>
       {/* Features Section: Boxes with Icons */}
-      <div className="bg-black">
+      <div className="bg-black mt-10">
         <div className="container mx-auto px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-white bg-white p-5 shadow-xs transition  md:p-7 xl:p-10">
