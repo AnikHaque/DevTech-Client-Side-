@@ -46,7 +46,7 @@ const MyPostedTasks = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 mt-10 text-center">
       <h2 className="text-2xl font-bold mb-4">My Posted Tasks</h2>
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
