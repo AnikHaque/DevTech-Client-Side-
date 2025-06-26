@@ -2,55 +2,53 @@ import React from "react";
 
 const AppPromo = () => {
   return (
-    <section className=" py-16" style={{ color: "var(--text-color)" }}>
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-12">
-        {/* App Preview Image */}
-        <div className="flex justify-center">
-          <img
-            src="https://themebing.com/wp/prolancer/wp-content/uploads/2021/12/app.png"
-            alt="App Preview"
-            className="max-w-full rounded-xl"
-          />
-        </div>
+    <section class=" bg-black lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="">
+          <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-8 2xl:gap-x-20">
+            <div>
+              <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl lg:leading-tight">
+                Use mobile app for better performance
+              </h2>
+              <p class="mt-4 text-base text-gray-50">
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim velit mollit.
+                Exercitation veniam consequat sunt nostrud amet.
+              </p>
 
-        {/* Text Content */}
-        <div>
-          <h2
-            className="text-4xl font-bold mb-4"
-            style={{ color: "var(--heading-color, var(--text-color))" }}
-          >
-            Get the Freelancer <br />
-            <span
-              className=""
-              style={{ color: "var(--text-muted-color, var(--text-color))" }}
-            >
-              Job Search App
-            </span>
-          </h2>
-          <p
-            className="mb-6 max-w-lg"
-            style={{ color: "var(--text-muted-color, var(--text-color))" }}
-          >
-            Search all the open positions on the web. Get your own personalized
-            salary estimate. Read reviews on over 600,000 companies worldwide.
-          </p>
+              <div class="flex flex-row items-center mt-8 space-x-4 lg:mt-12">
+                <a href="#" title="" class="flex" role="button">
+                  <img
+                    class="w-auto h-14"
+                    src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/8/btn-app-store.svg"
+                    alt=""
+                  />
+                </a>
 
-          {/* Store Buttons */}
-          <div className="flex gap-4">
-            <a href="#">
+                <a href="#" title="" class="flex" role="button">
+                  <img
+                    class="w-auto h-14"
+                    src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/8/btn-play-store.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div class="relative px-12">
+              <svg
+                class="absolute inset-x-0 bottom-0 left-1/2 -translate-x-1/2 -mb-48 lg:-mb-20 text-yellow-300 w-[460px] h-[460px] sm:w-[600px] sm:h-[600px]"
+                fill="currentColor"
+                viewBox="0 0 8 8"
+              >
+                <circle cx="4" cy="4" r="3" />
+              </svg>
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                alt="Get it on Google Play"
-                className="w-40"
+                class="relative w-full max-w-xs mx-auto -mb-60 lg:-mb-20"
+                src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/8/iphone-mockup.png"
+                alt=""
               />
-            </a>
-            <a href="#">
-              <img
-                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                alt="Download on the App Store"
-                className="w-40"
-              />
-            </a>
+            </div>
           </div>
         </div>
       </div>

@@ -13,8 +13,9 @@ const Home = () => {
     >
       <Hero />
       <PopularCategories />
-      <Stat></Stat>
+
       <ServiceCards />
+      <Stat></Stat>
       <PopularSellers />
       <PopularTasks></PopularTasks>
       <AppPromo />
