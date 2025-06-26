@@ -43,7 +43,7 @@ const DashPopularTasks = () => {
   );
 
   return (
-    <div className="p-8">
+    <div className="p-8 mt-10 text-center">
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Popular Tasks</h2>
 
       {/* Filter/Search */}
