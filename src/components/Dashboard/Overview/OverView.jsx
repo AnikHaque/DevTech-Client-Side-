@@ -24,10 +24,14 @@ const Overview = () => {
       try {
         const [usersRes, tasksRes, featuredRes, popularRes] = await Promise.all(
           [
-            axios.get("http://localhost:8800/api/users"),
-            axios.get("http://localhost:8800/api/tasks"),
-            axios.get("http://localhost:8800/api/featured"),
-            axios.get("http://localhost:8800/api/popular-tasks"),
+            axios.get("https://freelancer-website-server.vercel.app/api/users"),
+            axios.get("https://freelancer-website-server.vercel.app/api/tasks"),
+            axios.get(
+              "https://freelancer-website-server.vercel.app/api/featured"
+            ),
+            axios.get(
+              "https://freelancer-website-server.vercel.app/api/popular-tasks"
+            ),
           ]
         );
 

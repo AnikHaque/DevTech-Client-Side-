@@ -14,7 +14,9 @@ const DashPopularTasks = () => {
   useEffect(() => {
     const fetchPopularTasks = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/popular-tasks");
+        const res = await axios.get(
+          "https://freelancer-website-server.vercel.app/api/popular-tasks"
+        );
         setTasks(res.data);
         setFilteredTasks(res.data);
       } catch (error) {

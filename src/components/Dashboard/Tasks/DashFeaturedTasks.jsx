@@ -9,7 +9,7 @@ const ServiceCardDash = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8800/api/featured")
+      .get("https://freelancer-website-server.vercel.app/api/featured")
       .then((res) => setTasks(res.data))
       .catch((err) => console.error("Failed to fetch tasks", err))
       .finally(() => setLoading(false));

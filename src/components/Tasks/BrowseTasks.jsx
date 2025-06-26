@@ -17,7 +17,7 @@ const BrowseTasks = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:8800/api/tasks")
+      .get("https://freelancer-website-server.vercel.app/api/tasks")
       .then((res) => {
         setTasks(res.data);
         setFilteredTasks(res.data);

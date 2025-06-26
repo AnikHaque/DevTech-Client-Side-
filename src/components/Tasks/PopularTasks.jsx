@@ -9,7 +9,9 @@ const PopularTasks = () => {
   useEffect(() => {
     const fetchPopularTasks = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/popular-tasks");
+        const res = await axios.get(
+          "https://freelancer-website-server.vercel.app/api/popular-tasks"
+        );
         setTasks(res.data);
       } catch (error) {
         console.error("Error fetching popular tasks:", error);
