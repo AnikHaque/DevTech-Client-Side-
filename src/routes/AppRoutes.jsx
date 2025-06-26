@@ -22,6 +22,8 @@ import MainAbout from "../components/About/MainAbout";
 import Overview from "../components/Dashboard/Overview/OverView";
 import DashboardLayout from "../components/Layout/DashboardLayout";
 import DashPopularTasks from "../components/Dashboard/Tasks/DashPopularTasks";
+import ServiceCards from "../components/Tasks/FeaturedTasks";
+import ServiceCardDash from "../components/Dashboard/Tasks/DashFeaturedTasks";
 
 export default function AppRoutes() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -47,6 +49,11 @@ export default function AppRoutes() {
           element={<AddTask user={user} token={token}></AddTask>}
         />
         <Route path="popular-tasks" element={<DashPopularTasks />} />
+        <Route path="all-tasks" element={<BrowseTasks></BrowseTasks>} />
+        <Route
+          path="featured-tasks"
+          element={<ServiceCardDash></ServiceCardDash>}
+        />
         <Route path="my-tasks" element={<MyPostedTasks />} />
       </Route>
       {/* Protected Routes */}
