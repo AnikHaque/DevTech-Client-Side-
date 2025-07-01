@@ -5,6 +5,7 @@ import PopularSellers from "../components/Seller/PopularSeller";
 import AppPromo from "../components/AppPromo/AppPromo";
 import PopularTasks from "../components/Tasks/PopularTasks";
 import Stat from "../components/Stat/Stat";
+import HomeBlog from "../components/Blogs/HomeBlogs";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <PopularSellers />
       <PopularTasks></PopularTasks>
       <AppPromo />
+      <HomeBlog></HomeBlog>
     </div>
   );
 };

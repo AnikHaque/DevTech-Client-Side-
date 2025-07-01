@@ -27,7 +27,7 @@ const ServiceCards = () => {
   }
 
   return (
-    <div className="bg-[#1b1f12] py-28">
+    <div className="bg-white dark:bg-gray-900 py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="md:text-5xl font-bold xl:w-3/4 mx-auto text-white mb-20">
           Take a brief look at our Featured Tasks

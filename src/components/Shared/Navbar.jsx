@@ -56,10 +56,13 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-black text-white px-4 py-6 shadow-md fixed top-0 w-full z-50">
+    <div className="bg-black text-white px-4 py-6 shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to="/" className="text-xl font-bold">
-          DevTech
+          <img
+            src="https://devtechgroup.com/wp-content/uploads/2021/06/2021-Devtech-logo-m.png"
+            className="w-20"
+          ></img>
         </Link>
 
         <button
@@ -199,6 +202,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

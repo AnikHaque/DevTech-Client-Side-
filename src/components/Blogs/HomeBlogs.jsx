@@ -53,117 +53,165 @@ const blogPosts = [
 
 const HomeBlog = () => {
   return (
-    <section class="py-10 bg-gray-50 sm:py-16 lg:py-24">
-      <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <div class="flex items-end justify-between">
-          <div class="flex-1 text-center lg:text-left">
-            <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              Latest from blog
-            </h2>
-            <p class="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600 lg:mx-0">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis.
-            </p>
-          </div>
+    <section class="bg-white dark:bg-gray-900 py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">
+            recent posts{" "}
+          </h1>
 
-          <div class="hidden lg:flex lg:items-center lg:space-x-3">
-            <button
-              type="button"
-              class="flex items-center justify-center text-gray-400 transition-all duration-200 bg-transparent border border-gray-300 rounded w-9 h-9 hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:text-white"
+          <button class="focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-gray-600 transition-colors duration-300 transform dark:text-gray-400 hover:text-blue-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-
-            <button
-              type="button"
-              class="flex items-center justify-center text-gray-400 transition-all duration-200 bg-transparent border border-gray-300 rounded w-9 h-9 hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
         </div>
 
-        <div class="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 lg:mt-16 lg:grid-cols-3 lg:max-w-full">
-          {blogPosts.slice(0, 4).map((post) => (
-            <div class="overflow-hidden bg-white rounded shadow">
-              <div class="p-5">
-                <div class="relative">
-                  <a href="#" title="" class="block aspect-w-4 aspect-h-3">
-                    <img
-                      class="object-cover w-full h-[200px]"
-                      src={post.image}
-                      alt=""
-                    />
+        <hr class="my-8 border-gray-200 dark:border-gray-700" />
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-blue-500 uppercase">category</span>
+
+              <h1 class="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+                What do you want to know about UI
+              </h1>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam est
+                asperiores vel, ab animi recusandae nulla veritatis id tempore
+                sapiente
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                  >
+                    John snow
                   </a>
 
-                  <div class="absolute top-4 left-4"></div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    February 1, 2022
+                  </p>
                 </div>
-                <span class="block mt-6 text-sm font-semibold tracking-widest text-gray-500 uppercase">
-                  {" "}
-                  {post.date}
-                </span>
-                <p class="mt-5 text-2xl font-semibold">
-                  <a href="#" title="" class="text-black">
-                    {" "}
-                    {post.title}
-                  </a>
-                </p>
-                <p class="mt-4 text-base text-gray-600">{post.excerpt}</p>
+
                 <a
                   href="#"
-                  title=""
-                  class="inline-flex items-center justify-center pb-0.5 mt-5 text-base font-semibold text-blue-600 transition-all duration-200 border-b-2 border-transparent hover:border-blue-600 focus:border-blue-600"
+                  class="inline-block text-blue-500 underline hover:text-blue-400"
                 >
-                  Continue Reading
-                  <svg
-                    class="w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
+                  Read more
                 </a>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="flex justify-center mt-10">
-          <Link to="/blogs">
-            <button className="text-blue-600 font-semibold underline text-2xl">
-              Show All Blogs
-            </button>
-          </Link>
+          </div>
+
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-blue-500 uppercase">category</span>
+
+              <h1 class="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+                All the features you want to know
+              </h1>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam est
+                asperiores vel, ab animi recusandae nulla veritatis id tempore
+                sapiente
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                  >
+                    Arthur Melo
+                  </a>
+
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    February 6, 2022
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-blue-500 underline hover:text-blue-400"
+                >
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-blue-500 uppercase">category</span>
+
+              <h1 class="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+                Which services you get from Meraki UI
+              </h1>
+
+              <p class="mt-2 text-gray-500 dark:text-gray-400">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam est
+                asperiores vel, ab animi recusandae nulla veritatis id tempore
+                sapiente
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                  >
+                    Tom Hank
+                  </a>
+
+                  <p class="text-sm text-gray-500 dark:text-gray-400">
+                    February 19, 2022
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-blue-500 underline hover:text-blue-400"
+                >
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
